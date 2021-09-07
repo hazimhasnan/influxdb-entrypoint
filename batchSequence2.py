@@ -5,7 +5,7 @@ from influxdb_client import InfluxDBClient, Point, WritePrecision
 from influxdb_client.client.write_api import SYNCHRONOUS
 
 # You can generate a Token from the "Tokens Tab" in the UI
-token = "Rvkv9YM6U4S9rcY-8gijLBRAQfILr2ixkH1JXE-ozM2uw-A5Nk9wI3VHcupXNAJ-9wd4qa9guCKUN59athWp5w=="
+token = "eehoW7NSFeObcVPPN9evABWtlJG9jBjgLUs_arDuGOqJPGsYAHJ6hN2XTGakbhPhFsxecCPa-NhLytdgqvvU4w=="
 org = "skymind"
 bucket = "python-bucket"
 
@@ -17,11 +17,11 @@ sequence = []
 percent = 20
 for i in range(20):
   percent+=i
-  sequence.append(f"mem,host=host1 used_percent={percent}")
+  sequence.append(f"water-level,tank=tank1 used_percent={percent}")
 
 for i in range(20):
   percent = random.randrange(20, 40)
-  sequence.append(f"mem,host=host2 used_percent={percent}")
+  sequence.append(f"water-level,tank=tank2 used_percent={percent}")
 
 for i in sequence:
   print(i)

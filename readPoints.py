@@ -14,13 +14,12 @@ client = InfluxDBClient(url="http://localhost:8086", token=token)
 # Create a query and pass the query to the api
 query = f'from(bucket: "{bucket}") |> range(start: -1h) \
         |> filter(fn:(r) => r._measurement == "memory")'
-        
+
 tables = client.query_api().query(query, org=org)
 
 for i, table in enumerate(tables):
     print(f"Table {i}")
-    for record in table:
+    for row in table:
         # print(record)
-        print(record.get_field())
-        print(record.get_value())
-
+        print(row.get_field())
+        print(row.get_value())
